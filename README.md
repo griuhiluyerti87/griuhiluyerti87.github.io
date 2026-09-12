@@ -1,1 +1,1 @@
-# griuhiluyerti87-griuhiluyerti87.github.io
+# griuhiluyerti87.github.io
