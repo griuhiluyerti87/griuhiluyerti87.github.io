@@ -30,7 +30,7 @@
 
   // highlight whichever nav link/dropdown points at the current page
   const path = (location.pathname.split('/').pop() || 'index.html');
-  document.querySelectorAll('.nav__links > a, .nav__trigger, .nav__dropdown a').forEach(a => {
+  document.querySelectorAll('.nav__links > a, .nav__trigger, .nav__dropdown a, .nav__contact').forEach(a => {
     const file = (a.getAttribute('href') || '').split('#')[0];
     if (file === path || (file === 'index.html' && path === '')) {
       a.classList.add('is-active');
