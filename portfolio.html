@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Eliezer Cho</title>
+  <meta name="description" content="Motorsports, class, and personal projects by Eliezer Cho.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- ====================== TOP BAR ====================== -->
+  <header class="nav" id="nav">
+    <a class="nav__name" href="index.html">Eliezer Cho</a>
+    <nav class="nav__links">
+      <a href="experience.html">Experience</a>
+      <div class="nav__item nav__item--dropdown">
+        <a class="nav__trigger" href="portfolio.html">Portfolio <span class="chev">&#9662;</span></a>
+        <div class="nav__dropdown">
+          <a href="portfolio.html#motorsports">Motorsports</a>
+          <a href="portfolio.html#class-projects">Class Projects</a>
+          <a href="portfolio.html#personal-projects">Personal Projects</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ====================== MOTORSPORTS ====================== -->
+    <section id="motorsports" class="wrap" style="padding-block:120px 72px">
+      <p class="eyebrow">Portfolio</p>
+      <h2>Motorsports</h2>
+      <div class="cards">
+        <a class="card" href="project-motorsports-one.html">
+          <h3>Project One</h3>
+          <p>EDIT ME</p>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">STM32</span><span class="tag">PID</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====================== CLASS PROJECTS ====================== -->
+    <section id="class-projects" class="wrap">
+      <h2>Class projects</h2>
+      <div class="cards">
+        <a class="card" href="project-class-two.html">
+          <h3>Project Two</h3>
+          <p>EDIT ME</p>
+          <div class="tags">
+            <span class="tag">SolidWorks</span><span class="tag">CNC</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====================== PERSONAL PROJECTS ====================== -->
+    <section id="personal-projects" class="wrap">
+      <h2>Personal projects</h2>
+      <div class="cards">
+        <a class="card" href="project-personal-three.html">
+          <h3>Project Three</h3>
+          <p>EDIT ME</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Simulation</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>

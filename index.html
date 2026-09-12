@@ -3,11 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Site Title</title>
+  <title>Eliezer Cho — Engineering Portfolio</title>
+  <meta name="description" content="Engineering portfolio of Eliezer Cho — projects, experience, and background.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <p>hi</p>
-  <p>asdfasdf</p>
-  <p>asdfasdf</p>
+  <!-- ====================== TOP BAR ====================== -->
+  <header class="nav" id="nav">
+    <a class="nav__name" href="index.html">Eliezer Cho</a>
+    <nav class="nav__links">
+      <a href="experience.html">Experience</a>
+      <div class="nav__item nav__item--dropdown">
+        <a class="nav__trigger" href="portfolio.html">Portfolio <span class="chev">&#9662;</span></a>
+        <div class="nav__dropdown">
+          <a href="portfolio.html#motorsports">Motorsports</a>
+          <a href="portfolio.html#class-projects">Class Projects</a>
+          <a href="portfolio.html#personal-projects">Personal Projects</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ====================== NAME + ABOUT ME ====================== -->
+    <section class="home wrap">
+      <div class="home__intro">
+        <h1>Eliezer Cho</h1>
+        <p class="home__tagline">
+          <!-- EDIT ME: one or two lines about what you build and what you're after. -->
+          Mechanical engineering student at The Cooper Union.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="portfolio.html">See my work</a>
+          <a class="btn" href="contact.html">Get in touch</a>
+        </div>
+
+        <div class="home__about">
+          <p class="eyebrow">About me</p>
+          <p>
+            <!-- EDIT ME: a short paragraph on how you got into engineering and what kinds of problems you like. -->
+            EDIT ME
+          </p>
+          <p>
+            <!-- EDIT ME: what you're working toward right now, plus a personal note. -->
+            EDIT ME
+          </p>
+          <div class="home__chips">
+            <div>
+              <h3>Tools</h3>
+              <div class="tags">
+                <span class="tag">SolidWorks</span><span class="tag">MATLAB</span><span class="tag">Python</span>
+              </div>
+            </div>
+            <div>
+              <h3>Machines</h3>
+              <div class="tags">
+                <span class="tag">CNC Mill</span><span class="tag">Lathe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home__photo" aria-hidden="true">
+        <span><!-- EDIT ME: replace with &lt;img src="your-photo.jpg" alt="Eliezer Cho"&gt; -->EDIT ME</span>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="script.js" defer></script>
 </body>
 </html>
