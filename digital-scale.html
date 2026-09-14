@@ -46,31 +46,113 @@
       <a class="back-link" href="portfolio.html#class-projects">&larr; Back to Class Projects</a>
       <h2 class="project__title">Digital Scale</h2>
       <div class="tags">
-        <span class="tag"><span class="tag-dot tag-dot--tools"></span>EDIT ME</span>
-        <span class="tag"><span class="tag-dot tag-dot--machines"></span>EDIT ME</span>
-        <span class="tag"><span class="tag-dot tag-dot--code"></span>EDIT ME</span>
+        <span class="tag"><span class="tag-dot tag-dot--software"></span>Arduino</span>
       </div>
 
-      <div class="project__media" aria-hidden="true">
-        <!-- EDIT ME: replace with &lt;img src="..." alt="..."&gt; or an embedded video -->
-        <span>Add photos / video</span>
+      <div class="project__media-row">
+        <div class="project__media">
+          <img src="scale.jpg" alt="Scale base plate with sensors and electronics">
+        </div>
+        <div class="project__media">
+          <img src="scalearduino.jpg" alt="Scale wiring on breadboard and Arduino">
+        </div>
       </div>
 
       <div class="project__body">
         <h3>Overview</h3>
-        <p>EDIT ME</p>
-
-        <h3>Problem</h3>
-        <p>EDIT ME</p>
+        <p>My groupmates and I were tasked with building a scale that was capable of weighing a few pounds. I wanted to go beyond that and build something capable of weighing another person.</p>
 
         <h3>What I built</h3>
         <ul>
-          <li>EDIT ME</li>
-          <li>EDIT ME</li>
+          <li>Using 4 strain gauges in a Wheatstone Bridge configuration, my group measured the strain as felt by the gauges, and converted the measurement into Kilograms.</li>
+          <li>We used a steel sheet about 3/8th inch thick as our base plate, because its bending is predictable and can sustain the weight of an adult human.</li>
+          <li>We also used an amplifier to increase the signal being sent to the Arduino, which helped increase the sensitivity of the scale.</li>
         </ul>
 
         <h3>Result</h3>
-        <p>EDIT ME</p>
+        <p>The results are outlined below. Safe to say it worked very well!</p>
+        <div class="project__code-row">
+          <div class="project__pdf">
+            <iframe src="ScaleFinalReport.pdf" title="Scale Final Report" loading="lazy"></iframe>
+          </div>
+          <div class="project__code">
+            <pre><code>#include "HX711.h"
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+#define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+HX711 scale;
+
+uint8_t dataPin = 6;
+uint8_t clockPin = 7;
+uint8_t tarePin = A0;
+uint8_t unitPin = A1;
+long calibration= -8200;
+
+bool useKg = true;
+
+float f;
+//  adjust pins if needed
+
+
+
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(tarePin,INPUT);
+  pinMode(unitPin,INPUT);
+   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;) ;       // stop here if display isn't found
+  } 
+    display.clearDisplay();
+  display.setTextSize(2);           // 2× font
+  display.setTextColor(SSD1306_WHITE);
+  
+  scale.begin(dataPin, clockPin);
+  scale.set_scale(calibration);
+  scale.tare(20);   //  reset the scale to zero = 0
+  delay(200);
+}
+
+void loop()
+{
+  //  continuous scale 4x per second
+  if (digitalRead(unitPin) == HIGH) {   
+    useKg = !useKg;              
+    while (digitalRead(unitPin) == HIGH); 
+  }
+
+  if (digitalRead(tarePin) == HIGH) {
+    scale.tare(20);
+    delay(200);
+    while (digitalRead(tarePin) == HIGH);  
+  }
+  
+  float kg = scale.get_units(5);
+ 
+  float w  = useKg ? kg : kg * 2.20462;
+
+  Serial.print(w, 3);
+  Serial.println(useKg ? F(" kg") : F(" lb"));
+  char buf[16];
+  dtostrf(w, 6, 2, buf);           // " 63.42" etc.
+  display.clearDisplay();
+  display.setCursor(0, 16);
+  display.print(buf);
+  display.print(useKg ? F(" kg") : F(" lb"));
+  display.display();  
+
+  delay(25); 
+}</code></pre>
+          </div>
+        </div>
       </div>
     </section>
   </main>

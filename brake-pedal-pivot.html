@@ -46,31 +46,34 @@
       <a class="back-link" href="portfolio.html#motorsports">&larr; Back to Motorsports</a>
       <h2 class="project__title">Brake Pedal Pivot</h2>
       <div class="tags">
-        <span class="tag"><span class="tag-dot tag-dot--tools"></span>EDIT ME</span>
-        <span class="tag"><span class="tag-dot tag-dot--machines"></span>EDIT ME</span>
-        <span class="tag"><span class="tag-dot tag-dot--code"></span>EDIT ME</span>
+        <span class="tag"><span class="tag-dot tag-dot--design"></span>Solidworks</span>
+        <span class="tag"><span class="tag-dot tag-dot--machining"></span>TIG Welding</span>
       </div>
 
-      <div class="project__media" aria-hidden="true">
-        <!-- EDIT ME: replace with &lt;img src="..." alt="..."&gt; or an embedded video -->
-        <span>Add photos / video</span>
+      <div class="project__media-row">
+        <div class="project__media">
+          <img src="pivotcad.png" alt="Brake pedal pivot CAD model">
+        </div>
+        <div class="project__media">
+          <img src="pivotfea.png" alt="Brake pedal pivot FEA stress analysis">
+        </div>
       </div>
 
       <div class="project__body">
         <h3>Overview</h3>
-        <p>EDIT ME</p>
-
-        <h3>Problem</h3>
-        <p>EDIT ME</p>
+        <p>The team's old brake pivot was manufactured from lasercut steel sheets, which were 1/8th of an inch thick. This meant that it would bend under even very light loads, and that when subjected to real-life braking conditions, it may snap off and put the driver in danger. I was put in charge of designing and manufacturing the new pivot. </p>
 
         <h3>What I built</h3>
         <ul>
-          <li>EDIT ME</li>
-          <li>EDIT ME</li>
+          <li>The brake pedal was fully designed in Solidworks, because it was critical to run FEA on the part. We wanted to reduce torsion of the part as much as possible, which meant thickening the walls and adding a U-shaped support between the two walls of the pivot.</li>
+          <li>I also designed the bushings and supports that would allow the pedal to pivot, as well as the bolt that would hold all of it together, but unfortunately lost the CAD file and couldn't find screenshots.</li>
         </ul>
 
         <h3>Result</h3>
-        <p>EDIT ME</p>
+        <p>Below is a photo of the pivot along with the rest of the assembly. We then welded this part onto the pedalbox, and measured that it does not twist when subjected to torsional forces.</p>
+        <div class="project__media-result">
+          <img src="pivot photo.jpg" alt="Machined brake pedal pivot part">
+        </div>
       </div>
     </section>
   </main>
