@@ -54,26 +54,31 @@
         <span class="tag"><span class="tag-dot tag-dot--controls"></span>STM32 Microcontroller</span>
       </div>
 
-      <div class="project__media" aria-hidden="true">
-        <!-- EDIT ME: replace with &lt;img src="..." alt="..."&gt; or an embedded video -->
-        <span>Add photos / video</span>
+      <div class="project__media-row">
+        <div class="project__media">
+          <img src="gimbal.png" alt="Gimbal assembly">
+        </div>
+        <div class="project__media">
+          <img src="wiringdiagram.png" alt="Gimbal wiring diagram">
+        </div>
       </div>
 
       <div class="project__body">
         <h3>Overview</h3>
-        <p>EDIT ME</p>
+        <p>I worked on a gimbal over the summer of 2026, where I designed, coded, and fabricated all parts required. I made this for the purpose of stabilizing a camera on all 3 axes.</p>
 
-        <h3>Problem</h3>
-        <p>EDIT ME</p>
+    
 
         <h3>What I built</h3>
         <ul>
-          <li>EDIT ME</li>
-          <li>EDIT ME</li>
+          <li>I drew out the wiring diagram in KiCAD, and integrated an STM32F411 microcontroller with a AS5048A encoder and MPU6050 inertial measurement unit to keep the platform stable.</li>
+          <li>I designed the structural housing of the gimbal using Onshape, and 3D printed it using my Bambu Lab A1 Mini printer.</li>
+          <li>By using SimpleFOC, I was able to finely control the movement of the motor. I implemented the cascaded PID in C++.</li>
+          <li>You can see the GitHub repository <a href="https://github.com/mydkm/SomeCoolControlShit" target="_blank" rel="noopener">here</a>.</li>
         </ul>
 
         <h3>Result</h3>
-        <p>EDIT ME</p>
+        <p>I was able to successfully attenuate the tilt axis and stabilized it. This is still a work in progress.</p>
       </div>
     </section>
   </main>
